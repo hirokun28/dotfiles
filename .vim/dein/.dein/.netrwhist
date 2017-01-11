@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/HF/.vim'
+let g:netrw_dirhist_2='/Users/HF/Documents/FTP_NAO_APPS/hoomano_app/hoomano-ws-client'
+let g:netrw_dirhist_3='/Users/HF/Documents/FTP_NAO_APPS/hoomano_app/hoomano-ws-client/bin'
+let g:netrw_dirhist_4='/Users/HF/Documents/FTP_NAO_APPS/hoomano_app/hoomano-ws-client'

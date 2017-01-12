@@ -52,6 +52,9 @@ set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 let g:python_highlight_all = 1
 
+" for vimfiler :e . でデフォルトのやつじゃなくvimfilerを起動
+let g:vimfiler_as_default_explorer = 1
+
 " homeフォルダの.vimrcをスペースドットで開く
 nnoremap <space>. :tabedit $MYVIMRC<CR>
 
@@ -74,7 +77,7 @@ setlocal smarttab
 setlocal expandtab
 setlocal tabstop=4
 setlocal shiftwidth=4
-setlocal foldmethod=indent
+" setlocal foldmethod=indent " ソースコードの折りたたみ
 setlocal commentstring=#%s
 
 " - af: a function
@@ -122,9 +125,14 @@ let g:jedi#use_tabs_not_buffers = 1 "補完で次の候補に進むときにtab�
 let g:jedi#popup_select_first = 0 "1個目の候補が入力されるっていう設定を解除
 let g:jedi#popup_on_dot = 0 " .を入力すると補完が始まるという設定を解除
 
+" pythonのrename用のマッピングがquickrunとかぶるため回避させる
+let g:jedi#rename_command = ""
+" 使うならコメントアウト。普通のkで呼ばれちゃう。。
+" let g:jedi#documentation_command = "k"
+
 call dein#add('hdima/python-syntax')
-call dein#add('hynek/vim-python-pep8-indent')
-call dein#add('andviro/flake8-vim')
+" call dein#add('hynek/vim-python-pep8-indent')
+" call dein#add('andviro/flake8-vim')
 call dein#add('sentientmachine/Pretty-Vim-Python')
 
 call dein#add('Shougo/unite.vim')
@@ -142,6 +150,8 @@ let g:lightline = {
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
+call dein#add('Shougo/vimfiler')
+
 " Required:
 call dein#end()
 
@@ -149,8 +159,8 @@ call dein#end()
 filetype plugin indent on
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
